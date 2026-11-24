@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mission Quota</title>
+  <link rel="stylesheet" href="./app.css">
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <main>
+    <header>
+      <div class="emblem" aria-hidden="true">🚀</div>
+      <div><h1>Mission Quota</h1><p>Suivi des quotas Codex</p></div>
+    </header>
+
+    <dl class="status">
+      <div><dt>Compte ChatGPT</dt><dd id="account">Vérification…</dd></div>
+      <div><dt>Publication MQTT</dt><dd id="mqtt">Vérification…</dd></div>
+      <div><dt>Dernier relevé</dt><dd id="observed">—</dd></div>
+    </dl>
+
+    <section class="gauges" aria-label="Quotas Codex">
+      <article><h2 id="short-label">Fenêtre courte</h2><p class="amount" id="short-value">—</p>
+        <meter id="short-meter" aria-labelledby="short-label" min="0" max="100" value="0" hidden></meter>
+        <p id="short-reset" class="reset"></p>
+      </article>
+      <article><h2 id="week-label">Hebdomadaire</h2><p class="amount" id="week-value">—</p>
+        <meter id="week-meter" aria-labelledby="week-label" min="0" max="100" value="0" hidden></meter>
+        <p id="week-reset" class="reset"></p>
+      </article>
+    </section>
+
+    <p id="feedback" role="status" aria-live="polite">Lecture de l’état de l’application…</p>
+    <div class="actions">
+      <button id="connect" type="button" disabled>Connecter mon compte ChatGPT</button>
+      <button id="probe" type="button" disabled>Tester la lecture</button>
+    </div>
+    <section id="device" class="device" hidden aria-labelledby="device-heading">
+      <h2 id="device-heading">Confirme la connexion</h2>
+      <p>Ouvre la page OpenAI, connecte-toi et saisis ce code temporaire.</p>
+      <div class="actions">
+        <code id="code" tabindex="0"></code>
+        <button id="copy" type="button">Copier le code</button>
+      </div>
+      <p id="deadline"></p>
+      <div class="actions">
+        <a id="verification" target="_blank" rel="noopener noreferrer">Ouvrir OpenAI</a>
+        <button id="cancel" type="button">Annuler la connexion</button>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

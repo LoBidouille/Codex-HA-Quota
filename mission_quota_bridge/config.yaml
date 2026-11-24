@@ -1,0 +1,36 @@
+name: Mission Quota
+version: "1.1.0"
+slug: mission_quota_bridge
+description: Quotas Codex dans Home Assistant et sur LilyGO / Codex quotas for Home Assistant and LilyGO
+url: https://github.com/LoBidouille/Codex-HA-Quota
+arch:
+  - aarch64
+  - amd64
+startup: application
+boot: auto
+init: true
+ingress: true
+ingress_port: 8099
+panel_admin: true
+panel_icon: mdi:rocket-launch-outline
+panel_title: Mission Quota
+services:
+  - mqtt:want
+options:
+  publish_enabled: false
+  poll_seconds: 300
+  mqtt_topic: mission_quota
+  mqtt_host: ""
+  mqtt_port: 1883
+  mqtt_username: ""
+  mqtt_password: ""
+  mqtt_tls: false
+schema:
+  publish_enabled: bool
+  poll_seconds: int(60,3600)
+  mqtt_topic: str
+  mqtt_host: str?
+  mqtt_port: port?
+  mqtt_username: str?
+  mqtt_password: password?
+  mqtt_tls: bool?
